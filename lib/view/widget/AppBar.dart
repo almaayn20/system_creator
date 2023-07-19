@@ -1,4 +1,6 @@
-// AppBr("title",Icons.account_circle,anyFunction),
+// AppBr(IconBtn(),"title",Icons.account_circle,anyFunction),
+// Or
+// AppBr(BackButton(),"title",Icons.account_circle,anyFunction),
 
 
 // void anyFunction() {
@@ -6,11 +8,20 @@
 // }
 
 
+// IconButton IconBtn() {
+//   return IconButton(
+//     icon: Icon(Icons.settings_outlined),
+//     onPressed: anyFunction,
+//   );
+// }
 
-AppBar AppBr(title,icon,func) {
+
+
+
+AppBar AppBr(button,title,icon,func) {
   return AppBar(
     title:  Text(title),
-    leading:  BackButton(),
+    leading:  button,
     actions: [
       IconButton(
         icon: Icon(icon),
