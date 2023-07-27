@@ -8,16 +8,15 @@
 //   ]),
 // ),",Icons.account_circle,anyFunction,TbBar(Tabs)),
 
-
-
 // var Tabs = [
 //   (text: 'DOGS', icon: Icon(Icons.favorite)),
 //   (text: 'CATS', icon: Icon(Icons.music_note)),
 //   (text: 'BIRDS', icon: Icon(Icons.search)),
 // ];
 
+import 'package:flutter/material.dart';
 
-TabBar TbBar(myTabs) {
+TabBar tabBar(myTabs) {
   return TabBar(
     isScrollable: true,
     tabs: [

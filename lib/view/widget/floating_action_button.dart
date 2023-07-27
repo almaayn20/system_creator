@@ -1,12 +1,12 @@
 // floatingActionButton: FAButton("add new",Icons.add,anyFunction),
 
-
 // void anyFunction() {
 //   print("Hello");
 // }
 
+import 'package:flutter/material.dart';
 
-FloatingActionButton FAButton(text,icon,func) {
+FloatingActionButton faButton(text, icon, func) {
   return FloatingActionButton.extended(
     onPressed: func,
     icon: Icon(icon),

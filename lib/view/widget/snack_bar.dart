@@ -4,9 +4,9 @@
 //   print("Hello");
 // }
 
+import 'package:flutter/material.dart';
 
-
-SnackBar SBar(content,lable,func) {
+SnackBar snackBar(content, lable, func) {
   return SnackBar(
     behavior: SnackBarBehavior.floating,
     content: Text(content),

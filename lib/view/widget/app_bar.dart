@@ -2,11 +2,9 @@
 // Or
 // AppBr(BackButton(),"title",Icons.account_circle,anyFunction),
 
-
 // void anyFunction() {
 //   print("Hello");
 // }
-
 
 // IconButton IconBtn() {
 //   return IconButton(
@@ -15,19 +13,15 @@
 //   );
 // }
 
+import 'package:flutter/material.dart';
 
-
-
-AppBar AppBr(button,title,icon,func) {
+AppBar appBarCustom(
+    {Widget? leading, required String title, List<Widget>? actions}) {
   return AppBar(
-    title:  Text(title),
-    leading:  button,
-    actions: [
-      IconButton(
-        icon: Icon(icon),
-        onPressed: func,
-      ),
-    ],
+    elevation: 0,
+    title: Text(title),
+    leading: leading,
+    actions: actions,
     centerTitle: true,
   );
 }

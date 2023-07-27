@@ -6,13 +6,12 @@
 //   (text: Text('BIRDS'), icon: Icon(Icons.favorite)),
 // ];
 
+import 'package:flutter/material.dart';
 
-
-
-ListView LstView(LTile) {
+ListView listView(listTile) {
   return ListView(
     children: [
-      for (var lst in LTile)
+      for (var lst in listTile)
         ListTile(
           title: lst.text,
           trailing: lst.icon,

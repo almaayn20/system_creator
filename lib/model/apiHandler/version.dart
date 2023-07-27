@@ -1,3 +1,5 @@
+import 'package:system_creator/model/apiHandler/versionApplications.dart';
+
 class Version {
   final String versionNumber;
   final String appId;
