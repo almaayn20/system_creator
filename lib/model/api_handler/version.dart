@@ -1,4 +1,4 @@
-import 'package:system_creator/model/apiHandler/versionApplications.dart';
+import 'package:system_creator/model/api_handler/version_applications.dart';
 
 class Version {
   final String versionNumber;
