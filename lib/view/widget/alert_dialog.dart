@@ -1,25 +1,22 @@
-// ADialog(Icons.add,'What is a dialog?','A dialog is a type of modal window that appears in front of app content to provide critical information, or prompt for a decision to be made.',"action1",anyFunction,"action2",anyFunction),
+// طريقة الاستدعاء
+// alertDialog(icon:Icons.add,title: Text('What is a dialog?'),text: Text('A dialog is a type of modal window '),action:listOfWidgets),
 
-// void anyFunction() {
-//   print("Hello");
-// }
+
+// static ملاحظة: جميع الدوال المستخدمة لابد ان تكون 
+// final List<Widget>? listOfWidgets = [
+//   textButtonCustom(func: anyFunction,text: "text"),
+//   textButtonCustom(func: anyFunction,text: "text"),
+//   ];
 
 import 'package:flutter/material.dart';
 
-AlertDialog alertDialog(icon, title, text, action1, func1, action2, func2) {
+AlertDialog alertDialog({ IconData? icon,  Text? title, Text? text,required final List<Widget>? action}) {
   return AlertDialog(
     icon: Icon(icon),
-    title: Text(title),
-    content: Text(text),
-    actions: <Widget>[
-      TextButton(
-        onPressed: func1,
-        child: Text(action1),
-      ),
-      TextButton(
-        onPressed: func2,
-        child: Text(action2),
-      ),
-    ],
+    title: title,
+    content: text,
+    actions: action ,
   );
 }
+
+
