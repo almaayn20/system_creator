@@ -15,6 +15,7 @@ dependencies:
   get:
   get_storage:
   flutter_colorpicker:
+  tuple:
 
 dev_dependencies:
   flutter_test:

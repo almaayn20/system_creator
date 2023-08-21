@@ -15,8 +15,11 @@
 
 import 'package:flutter/material.dart';
 
-AppBar appBarCustom(
-    {Widget? leading, required String title, List<Widget>? actions}) {
+AppBar appBarCustom({
+  Widget? leading,
+  required String title,
+  List<Widget>? actions,
+}) {
   return AppBar(
     elevation: 0,
     title: Text(title),
