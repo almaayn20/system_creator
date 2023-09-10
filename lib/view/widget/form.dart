@@ -13,6 +13,9 @@ Form formCustom(
 // formCustom(formKey: _formKey, widgets: listOfWidgets),
 
 
+// // static ملاحظة كل الادوات والدوال لابد ان تكون 
+
+
 // // Key
 // static final _formKey = GlobalKey<FormState>();
 
