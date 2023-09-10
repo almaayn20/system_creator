@@ -2,11 +2,15 @@ import 'package:flutter/material.dart';
 import 'package:system_creator/services/size_config.dart';
 import 'package:system_creator/services/theme_services.dart';
 import 'package:system_creator/view/widget/button.dart';
+import 'package:system_creator/view/widget/card.dart';
+import 'package:system_creator/view/widget/list_view.dart';
 import 'package:system_creator/view/widget/tap_bar.dart';
 import 'package:tuple/tuple.dart';
 
 import '../widget/app_bar.dart';
 import '../widget/bottom_sheet.dart';
+import '../widget/drop_down_box.dart';
+import '../widget/full_screen_dialog.dart';
 import '../widget/text_button.dart';
 import '../widget/text_field.dart';
 
@@ -21,11 +25,24 @@ class _ChangeAppThemeState extends State<ChangeAppTheme>
     with TickerProviderStateMixin {
   TextEditingController cont = TextEditingController();
   late TabController _tabController;
-  List<Tuple2<String, Icon>> tabsTitles = const [
-    Tuple2('DOGS', Icon(Icons.favorite)),
-    Tuple2('CATS', Icon(Icons.music_note)),
-    Tuple2('BIRDS', Icon(Icons.search)),
+  List<Tuple2<String, IconData>> tabsTitles = const [
+    Tuple2('DOGS', Icons.favorite),
+    Tuple2('CATS', Icons.music_note),
+    Tuple2('BIRDS', Icons.search),
   ];
+
+  List<Tuple2<dynamic, String>> bankEntries = const [
+    Tuple2(1, 'الكريمي'),
+    Tuple2(2, 'التضامن'),
+    Tuple2(2, 'البنك التجاري'),
+  ];
+
+  List<Tuple2<Widget, IconData>> listValues = const [
+    Tuple2(Text('DOGS'), Icons.favorite),
+    Tuple2(Text('CATS'), Icons.music_note),
+    Tuple2(Text('BIRDS'), Icons.search),
+  ];
+
   @override
   void initState() {
     super.initState();
@@ -71,7 +88,9 @@ class _ChangeAppThemeState extends State<ChangeAppTheme>
 
   Center page2(BuildContext context) {
     return Center(
-      child: Text("salman"),
+      child: elevatedButtonCustom(
+          func: () => openFullscreenDialog(context, "Material 3"),
+          text: "openFullscreenDialog"),
     );
   }
 
@@ -83,6 +102,9 @@ class _ChangeAppThemeState extends State<ChangeAppTheme>
         child: Column(
           mainAxisAlignment: MainAxisAlignment.center,
           children: [
+            cardCustom([
+              DropDownMenuCustom(bankEntries, "Banks"),
+            ]),
             elevatedButtonCustom(
                 func: () async {
                   // ShowTimePickerCustom().show(context);

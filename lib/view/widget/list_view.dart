@@ -1,21 +1,55 @@
-// LstView(LstTiles),
-
-// var LstTiles = [
-//   (text: Text('DOGS'), icon: Icon(Icons.settings_outlined)),
-//   (text: Text('CATS'), icon: Icon(Icons.music_note)),
-//   (text: Text('BIRDS'), icon: Icon(Icons.favorite)),
-// ];
-
 import 'package:flutter/material.dart';
 
-ListView listView(listTile) {
+class ListTileProps {
+  final Widget title;
+  final Widget? subtitle;
+  final Widget? leading;
+  final bool isThreeLine;
+  final VoidCallback? onTap;
+  final IconData trailing;
+
+  ListTileProps({
+    required this.title,
+    this.subtitle,
+    this.leading,
+    this.isThreeLine = false,
+    this.onTap,
+    required this.trailing,
+  });
+}
+
+ListView listViewCustom(List<ListTileProps> listTileProps) {
   return ListView(
     children: [
-      for (var lst in listTile)
+      for (var props in listTileProps)
         ListTile(
-          title: lst.text,
-          trailing: lst.icon,
+          title: props.title,
+          subtitle: props.subtitle,
+          leading: props.leading,
+          isThreeLine: props.isThreeLine,
+          onTap: props.onTap,
+          trailing: Icon(props.trailing),
         ),
     ],
   );
 }
+
+/*
+listViewCustom([
+          ListTileProps(
+            title: Text('Item 1'),
+            trailing: Icons.star,
+          ),
+          ListTileProps(
+            title: Text('Item 2'),
+            subtitle: Text('Subtitle for Item 2'),
+            leading: Icon(Icons.info),
+            isThreeLine: true,
+            onTap: () {
+              // Handle onTap for Item 2
+            },
+            trailing: Icons.star_border,
+          ),
+          // Add more list items as needed
+        ]),
+*/ 

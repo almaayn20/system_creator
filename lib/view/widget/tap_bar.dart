@@ -4,7 +4,7 @@ import 'package:tuple/tuple.dart';
 class TabBarWidget extends StatelessWidget {
   final List<Widget> tabViews;
   final TabController tabController;
-  final List<Tuple2<String, Icon>> tabs;
+  final List<Tuple2<String, IconData>> tabs;
 
   TabBarWidget(
       {required this.tabs,
@@ -22,7 +22,7 @@ class TabBarWidget extends StatelessWidget {
             for (var tab in tabs)
               Tab(
                 text: tab.item1,
-                icon: tab.item2,
+                icon: Icon(tab.item2),
                 iconMargin: const EdgeInsets.only(bottom: 0.0),
               ),
           ],
@@ -43,10 +43,10 @@ class TabBarWidget extends StatelessWidget {
 class _ChangeAppThemeState extends State<ChangeAppTheme>
     with TickerProviderStateMixin {
   late TabController _tabController;
-  List<Tuple2<String, Icon>> tabsTitles = const [
-    Tuple2('DOGS', Icon(Icons.favorite)),
-    Tuple2('CATS', Icon(Icons.music_note)),
-    Tuple2('BIRDS', Icon(Icons.search)),
+ List<Tuple2<String, IconData>> tabsTitles = const [
+    Tuple2('DOGS', Icons.favorite),
+    Tuple2('CATS', Icons.music_note),
+    Tuple2('BIRDS', Icons.search),
   ];
   @override
   void initState() {

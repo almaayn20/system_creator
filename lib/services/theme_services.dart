@@ -26,14 +26,16 @@ class ThemeServices {
       Get.changeTheme(ThemeData(
         colorSchemeSeed: selectedColor,
         useMaterial3: true,
-        textTheme: GoogleFonts.cairoTextTheme(),
+        //     textTheme: GoogleFonts.cairoTextTheme(),
+        fontFamily: 'Cairo',
       ));
     } else {
       Get.changeTheme(ThemeData(
         //  brightness: Brightness.dark,
         useMaterial3: true,
         colorSchemeSeed: selectedColor,
-        textTheme: GoogleFonts.cairoTextTheme(),
+        //   textTheme: GoogleFonts.cairoTextTheme(),
+        fontFamily: 'Cairo',
       ));
     }
   }
@@ -43,12 +45,14 @@ ThemeData lightTheme = ThemeData(
 //    brightness: Brightness.light,
   useMaterial3: true,
   colorSchemeSeed: selectedColor,
-  textTheme: GoogleFonts.cairoTextTheme(),
+//  textTheme: GoogleFonts.cairoTextTheme(),
+  fontFamily: 'Cairo',
 );
 
 ThemeData darkTheme = ThemeData(
   brightness: Brightness.dark,
   useMaterial3: true,
   colorSchemeSeed: selectedColor,
-  textTheme: GoogleFonts.cairoTextTheme(),
+  // textTheme: GoogleFonts.cairoTextTheme(),
+  fontFamily: 'Cairo',
 );
