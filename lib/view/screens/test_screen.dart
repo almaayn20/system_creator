@@ -88,9 +88,25 @@ class _ChangeAppThemeState extends State<ChangeAppTheme>
 
   Center page2(BuildContext context) {
     return Center(
-      child: elevatedButtonCustom(
-          func: () => openFullscreenDialog(context, "Material 3"),
-          text: "openFullscreenDialog"),
+      child: listViewCustom([
+        ListTileProps(
+          title: Text('Item 1'),
+          trailing: Icons.star,
+        ),
+        ListTileProps(
+          title: Text('Item 2'),
+          subtitle: Text('Subtitle for Item 2'),
+          leading: Icon(Icons.info),
+          isThreeLine: false,
+          onTap: () {
+            // Handle onTap for Item 2
+          },
+          trailing: Icons.star_border,
+        ),
+      ]),
+      // elevatedButtonCustom(
+      //     func: () => openFullscreenDialog(context, "Material 3"),
+      //     text: "openFullscreenDialog"),
     );
   }
 

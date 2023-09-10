@@ -34,14 +34,14 @@ flutter:
   fonts:
     - family: Cairo
       fonts:
-        - asset: fonts/Cairo-ExtraLight.ttf
-        - asset: fonts/Cairo-Light.ttf
-        - asset: fonts/Cairo-Regular.ttf
-        - asset: fonts/Cairo-Medium.ttf
-        - asset: fonts/Cairo-SemiBold.ttf
-        - asset: fonts/Cairo-Bold.ttf
-        - asset: fonts/Cairo-ExtraBold.ttf
-        - asset: fonts/Cairo-Black.ttf
+        - asset: assets/fonts/Cairo-ExtraLight.ttf
+        - asset: assets/fonts/Cairo-Light.ttf
+        - asset: assets/fonts/Cairo-Regular.ttf
+        - asset: assets/fonts/Cairo-Medium.ttf
+        - asset: assets/fonts/Cairo-SemiBold.ttf
+        - asset: assets/fonts/Cairo-Bold.ttf
+        - asset: assets/fonts/Cairo-ExtraBold.ttf
+        - asset: assets/fonts/Cairo-Black.ttf
         #  style: italic
   #   - family: Trajan Pro
   #     fonts:
