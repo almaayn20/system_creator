@@ -1,30 +1,32 @@
 // تضمين المكتبة للمشروع
 import 'package:carousel_slider/carousel_slider.dart';
+import 'package:flutter/material.dart';
 
-
-static CarouselSlider carouselSliderCustom(
-    {required List<String> imageList, required bool useNetworkImage,required double ratio}) {
+CarouselSlider carouselSliderCustom(
+    {required List<String> imageList,
+    required bool useNetworkImage,
+    required double ratio}) {
   return CarouselSlider(
-  options: CarouselOptions(
-    autoPlay: true,
-    aspectRatio: ratio,
-    enlargeCenterPage: true,
-  ),
-  items: imageList.map((item) {
-    if (useNetworkImage) {
-      return Image.network(
-        item,
-        fit: BoxFit.cover,
-        width: double.infinity,
-      );
-    } else {
-      return Image.asset(
-        item,
-        fit: BoxFit.cover,
-        width: double.infinity,
-      );
-    }
-  }).toList(),
+    options: CarouselOptions(
+      autoPlay: true,
+      aspectRatio: ratio,
+      enlargeCenterPage: true,
+    ),
+    items: imageList.map((item) {
+      if (useNetworkImage) {
+        return Image.network(
+          item,
+          fit: BoxFit.cover,
+          width: double.infinity,
+        );
+      } else {
+        return Image.asset(
+          item,
+          fit: BoxFit.cover,
+          width: double.infinity,
+        );
+      }
+    }).toList(),
   );
 }
 
