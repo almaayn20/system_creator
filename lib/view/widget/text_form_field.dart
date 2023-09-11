@@ -1,4 +1,6 @@
-static TextFormField textFormFieldCustom(
+import 'package:flutter/material.dart';
+
+TextFormField textFormFieldCustom(
     {required String? Function(dynamic value) validate,
     required TextEditingController controller,
     required String label,
