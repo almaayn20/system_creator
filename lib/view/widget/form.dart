@@ -1,10 +1,11 @@
-Form formCustom(
-    {required final formKey, required final List<Widget> widgets}) {
+import 'package:flutter/material.dart';
+
+Form formCustom({required final formKey, required final List<Widget> widgets}) {
   return Form(
-      key: formKey,
-      child: Column(
-        children: widgets,
-      ),
+    key: formKey,
+    child: Column(
+      children: widgets,
+    ),
   );
 }
 
@@ -40,9 +41,6 @@ Form formCustom(
 //               }
 //               return null;
 // }
-
-
-
 
 // // عند ضغط الزر
 // static anyFunction() {

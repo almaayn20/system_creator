@@ -1,15 +1,17 @@
-static TextFormField textFormFieldCustom(
-    {required String? Function(dynamic value) validate,
-    required TextEditingController controller,
-    required String label,
-    required String hint,
-    String? helper,
-    String? error,
-    IconData? prefix,
-    IconData? suffix,
-    required bool obscure,
-    required TextInputType kbtype,
-    }) {
+import 'package:flutter/material.dart';
+
+TextFormField textFormFieldCustom({
+  required String? Function(dynamic value) validate,
+  required TextEditingController controller,
+  required String label,
+  required String hint,
+  String? helper,
+  String? error,
+  IconData? prefix,
+  IconData? suffix,
+  required bool obscure,
+  required TextInputType kbtype,
+}) {
   return TextFormField(
     decoration: InputDecoration(
       prefixIcon: Icon(prefix),
