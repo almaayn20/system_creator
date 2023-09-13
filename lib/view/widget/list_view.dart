@@ -1,12 +1,14 @@
 import 'package:flutter/material.dart';
 
+import '../../services/size_config.dart';
+
 class ListTileProps {
   final Widget title;
   final Widget? subtitle;
-  final Widget? leading;
+  final IconData? leading;
   final bool isThreeLine;
   final VoidCallback? onTap;
-  final IconData trailing;
+  final IconData? trailing;
 
   ListTileProps({
     required this.title,
@@ -14,7 +16,7 @@ class ListTileProps {
     this.leading,
     this.isThreeLine = false,
     this.onTap,
-    required this.trailing,
+    this.trailing,
   });
 }
 
@@ -25,13 +27,41 @@ ListView listViewCustom(List<ListTileProps> listTileProps) {
         ListTile(
           title: props.title,
           subtitle: props.subtitle,
-          leading: props.leading,
+          leading: Icon(props.leading),
           isThreeLine: props.isThreeLine,
           onTap: props.onTap,
           trailing: Icon(props.trailing),
         ),
     ],
   );
+}
+
+List<Widget> listTileCustom(
+    List<ListTileProps> listTileProps, List<int> dividerIndices) {
+  final List<Widget> tilesWithDividers = [];
+
+  for (int i = 0; i < listTileProps.length; i++) {
+    final props = listTileProps[i];
+
+    tilesWithDividers.add(
+      ListTile(
+        title: props.title,
+        subtitle: props.subtitle,
+        leading: Icon(props.leading),
+        isThreeLine: props.isThreeLine,
+        onTap: props.onTap,
+        trailing: Icon(props.trailing),
+      ),
+    );
+
+    if (dividerIndices.contains(i)) {
+      tilesWithDividers.add(
+        const Divider(),
+      );
+    }
+  }
+
+  return tilesWithDividers;
 }
 
 /*

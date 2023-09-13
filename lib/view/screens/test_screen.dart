@@ -131,15 +131,6 @@ class _ChangeAppThemeState extends State<ChangeAppTheme>
       child: Scaffold(
         appBar: appBarCustom(
           title: 'صانع التطبيقات',
-          actions: [
-            IconButton(
-                onPressed: () {
-                  ThemeServices().switchTheme();
-                },
-                icon: ThemeServices().theme == ThemeMode.dark
-                    ? const Icon(Icons.light_mode_outlined)
-                    : const Icon(Icons.dark_mode_outlined)),
-          ],
         ),
         body: TabBarWidget(
           tabController: _tabController,
@@ -225,7 +216,7 @@ class _ChangeAppThemeState extends State<ChangeAppTheme>
         ListTileProps(
           title: Text('Item 2'),
           subtitle: Text('Subtitle for Item 2'),
-          leading: Icon(Icons.info),
+          leading: Icons.info,
           isThreeLine: false,
           onTap: () {
             // Handle onTap for Item 2

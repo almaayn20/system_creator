@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:system_creator/view/screens/settings.dart';
 import 'package:system_creator/view/screens/test_screen.dart';
 
 import 'services/theme_Services.dart';
@@ -18,7 +19,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeServices().theme,
-      home: ChangeAppTheme(),
+      home: Settings(),
     );
   }
 }

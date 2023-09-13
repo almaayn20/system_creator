@@ -23,7 +23,7 @@ ElevatedButton colorPickerCustom(
               TextButton(
                 onPressed: () {
                   Navigator.of(context).pop();
-                  ThemeServices().changeThemeData();
+                  //   ThemeServices().changeThemeColor(1);
                 },
                 child: const Text('OK'),
               ),
