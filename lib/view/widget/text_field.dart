@@ -2,15 +2,15 @@
 
 import 'package:flutter/material.dart';
 
-TextField textField(
+TextField textFieldCustom(
     {required TextEditingController controller,
     required String label,
     required String hint,
     String? helper,
     String? error,
-    required IconData prefix,
+    IconData? prefix,
     IconData? suffix,
-    bool? obscure,
+    required bool obscure,
     required kbtype}) {
   return TextField(
     decoration: InputDecoration(
@@ -22,7 +22,7 @@ TextField textField(
       errorText: error,
       border: const OutlineInputBorder(),
     ),
-    obscureText: obscure!,
+    obscureText: obscure,
     keyboardType: kbtype,
     controller: controller,
   );

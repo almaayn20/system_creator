@@ -19,12 +19,13 @@ AppBar appBarCustom({
   Widget? leading,
   required String title,
   List<Widget>? actions,
+  bool? centertitle,
 }) {
   return AppBar(
     elevation: 0,
     title: Text(title),
     leading: leading,
     actions: actions,
-    centerTitle: true,
+    centerTitle: centertitle,
   );
 }
