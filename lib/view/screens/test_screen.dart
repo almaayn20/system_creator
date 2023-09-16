@@ -243,7 +243,7 @@ class _ChangeAppThemeState extends State<ChangeAppTheme>
   }
 
   TextField passwordTextField() {
-    return textField(
+    return textFieldCustom(
         controller: cont,
         label: 'كلمة السر',
         hint: 'ادخل كلمة السر',
@@ -256,7 +256,7 @@ class _ChangeAppThemeState extends State<ChangeAppTheme>
   }
 
   TextField emailTextField() {
-    return textField(
+    return textFieldCustom(
         controller: cont,
         label: 'الإيميل',
         hint: 'ادخل إيميلك',
