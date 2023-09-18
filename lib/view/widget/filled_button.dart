@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 
-FilledButton customFilledButton(Function() onPressed, String text) {
+FilledButton filledButtonCustom(
+  {required Function() onPressed,required String text}) {
   return FilledButton(onPressed: onPressed, child: Text(text));
 }
