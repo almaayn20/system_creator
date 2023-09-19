@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:system_creator/services/size_config.dart';
 import 'package:tuple/tuple.dart';
 
 class DropDownMenuCustom extends StatelessWidget {
@@ -23,6 +24,7 @@ class DropDownMenuCustom extends StatelessWidget {
       //     trailingIcon: Icon(icon),
       controller: colorController,
       label: Text(label),
+      width: SizeConfig.screenWidth*0.9,
       dropdownMenuEntries: assign(),
       onSelected: (val) {},
     );
