@@ -4,6 +4,8 @@ import 'package:system_creator/view/screens/settings.dart';
 import 'package:system_creator/view/screens/test_screen.dart';
 import 'package:system_creator/view/screens/login.dart';
 import 'package:system_creator/view/screens/signup.dart';
+import 'package:system_creator/view/screens/new_password.dart';
+import 'package:system_creator/view/screens/verification.dart';
 
 import 'services/theme_Services.dart';
 
@@ -21,7 +23,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeServices().theme,
-      home: signup(),
+      home: Signup(),
     );
   }
 }

@@ -1,20 +1,28 @@
 import 'package:flutter/material.dart';
 import 'package:system_creator/services/size_config.dart';
 import 'package:system_creator/view/screens/settings.dart';
-import 'package:system_creator/view/widget/filled_butto.dart';
+import 'package:system_creator/view/widget/filled_button.dart';
 import 'package:system_creator/view/widget/form.dart';
 import 'package:system_creator/view/widget/text_button.dart';
-import 'package:system_creator/view/widget/text_field.dart';
+import 'package:system_creator/view/widget/text_Form_field.dart';
 import 'package:system_creator/view/widget/Button.dart';
 import 'package:flutter_svg/flutter_svg.dart';
 import 'package:get/get.dart';
 
-class login extends StatelessWidget {
-  login({Key? key}) : super(key: key);
+class Login extends StatelessWidget {
+  Login({Key? key}) : super(key: key);
 
-  TextEditingController controller = TextEditingController();
-  TextEditingController controller2 = TextEditingController();
+  TextEditingController emailController = TextEditingController();
+  TextEditingController passwordController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
+
+  String? validate(value) {
+    if (value == null || value.isEmpty) {
+      return 'Please enter some text';
+    }
+    return null;
+  }
+
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
@@ -40,8 +48,9 @@ class login extends StatelessWidget {
                 formCustom(
                   formKey: _formKey,
                   widgets: [
-                    textFieldCustom(
-                      controller: controller,
+                    textFormFieldCustom(
+                      validate: validate,
+                      controller: emailController,
                       label: 'الايميل',
                       hint: 'ادخل ايميلك',
                       suffix: Icons.email_outlined,
@@ -49,11 +58,12 @@ class login extends StatelessWidget {
                       obscure: false,
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
-                    textFieldCustom(
-                      controller: controller2,
+                    textFormFieldCustom(
+                      validate: validate,
+                      controller: passwordController,
                       label: 'كلمة السر',
                       hint: 'ادخل كلمة السر',
-                      suffix: Icons.visibility_outlined,
+                      suffix: Icons.visibility_off_outlined,
                       kbtype: TextInputType.text,
                       obscure: true,
                     ),
@@ -61,7 +71,7 @@ class login extends StatelessWidget {
                     SizedBox(
                       width:
                           double.infinity, // Expand to fill the available width
-                      child: customFilledButton(() {}, 'تسجيل الدخول'),
+                      child: filledButtonCustom(onPressed: () {},text: 'تسجيل الدخول'),
                     ),
                     SizedBox(
                       width:
