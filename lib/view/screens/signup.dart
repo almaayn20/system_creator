@@ -34,8 +34,8 @@ class Signup extends StatelessWidget {
       child: Scaffold(
         appBar: appBarCustom(
           leading: iconButtonCustom(func: () {}, icon: Icons.arrow_back),
-          title: 'رجوع',
-          centertitle: false,
+          title: 'صانع التطبيقات',
+          centertitle: true,
         ),
         body: SingleChildScrollView(
           child: Container(

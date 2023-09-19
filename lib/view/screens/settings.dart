@@ -97,6 +97,7 @@ class Settings extends StatelessWidget {
       child: Scaffold(
         appBar: appBarCustom(
           title: 'صانع التطبيقات',
+          centertitle: true,
         ),
         body: ListView(
           children: listTileCustom([

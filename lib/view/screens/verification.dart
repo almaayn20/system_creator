@@ -29,8 +29,8 @@ class Verification extends StatelessWidget {
       child: Scaffold(
         appBar: appBarCustom(
           leading: iconButtonCustom(func: () {}, icon: Icons.arrow_back),
-          title: 'رجوع',
-          centertitle: false,
+          title: 'صانع التطبيقات',
+          centertitle: true,
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -44,7 +44,8 @@ class Verification extends StatelessWidget {
                 SizedBox(height: SizeConfig.screenHeight * 0.3),
                 Container(
                   alignment: Alignment.centerRight,
-                  child: Text('لقد قمنا بإرسال كود التحقق الى الايميل المدخل أثناء عملية التسجيل :'),
+                  child: Text(
+                      'لقد قمنا بإرسال كود التحقق الى الايميل المدخل أثناء عملية التسجيل :'),
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
                 formCustom(
@@ -63,9 +64,8 @@ class Verification extends StatelessWidget {
                     SizedBox(
                       width:
                           double.infinity, // Expand to fill the available width
-                      child: filledButtonCustom(
-                          onPressed: () {},
-                          text: 'تأكيد'),
+                      child:
+                          filledButtonCustom(onPressed: () {}, text: 'تأكيد'),
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
                     Text('0:00'),

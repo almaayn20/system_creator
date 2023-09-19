@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:get/get.dart';
+import 'package:system_creator/view/screens/compaines.dart';
 import 'package:system_creator/view/screens/settings.dart';
 import 'package:system_creator/view/screens/test_screen.dart';
 import 'package:system_creator/view/screens/login.dart';
@@ -23,7 +24,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeServices().theme,
-      home: Signup(),
+      home: Companies(),
     );
   }
 }

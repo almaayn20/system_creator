@@ -28,8 +28,8 @@ class NewPassword extends StatelessWidget {
       child: Scaffold(
         appBar: appBarCustom(
           leading: iconButtonCustom(func: () {}, icon: Icons.arrow_back),
-          title: 'رجوع',
-          centertitle: false,
+          title: 'صانع التطيبقات',
+          centertitle: true,
         ),
         body: SingleChildScrollView(
           child: Container(
@@ -62,9 +62,8 @@ class NewPassword extends StatelessWidget {
                     SizedBox(
                       width:
                           double.infinity, // Expand to fill the available width
-                      child: filledButtonCustom(
-                          onPressed: () {},
-                          text: 'تأكيد'),
+                      child:
+                          filledButtonCustom(onPressed: () {}, text: 'تأكيد'),
                     ),
                   ],
                 ),

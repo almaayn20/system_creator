@@ -1,21 +1,18 @@
 import 'package:flutter/material.dart';
 
-SizedBox cardCustom(List<Widget> widgets) {
-  return SizedBox(
-    child: Card(
-      child: Container(
-        padding: const EdgeInsets.fromLTRB(10, 5, 5, 10),
-        child: Column(
-          children: widgets,
-          /*  Align(
-              alignment: Alignment.topRight,
-              child: IconButton(
-                icon: const Icon(Icons.more_vert),
-                onPressed: () {},
-              ),
-            ),*/
-        ),
-      ),
+Card cardCustom(List<Widget> widgets) {
+  return Card(
+    elevation: 2.0,
+    margin: const EdgeInsets.all(8.0),
+    child: Column(
+      children: widgets,
+      /*  Align(
+          alignment: Alignment.topRight,
+          child: IconButton(
+            icon: const Icon(Icons.more_vert),
+            onPressed: () {},
+          ),
+        ),*/
     ),
   );
 }
