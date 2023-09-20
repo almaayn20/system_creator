@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:system_creator/services/size_config.dart';
+import 'package:system_creator/view/screens/verification.dart';
 import 'package:system_creator/view/widget/text_form_field.dart';
 import 'package:system_creator/view/widget/filled_button.dart';
 import 'package:system_creator/view/widget/icon_button.dart';
@@ -122,7 +123,9 @@ class Signup extends StatelessWidget {
                       width:
                           double.infinity, // Expand to fill the available width
                       child: filledButtonCustom(
-                          onPressed: () {},
+                          onPressed: () {
+                            Get.to(Verification());
+                          },
                           text: 'الذهاب الى التحقق من التسجيل'),
                     ),
                   ],

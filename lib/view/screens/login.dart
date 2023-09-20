@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:system_creator/services/size_config.dart';
 import 'package:system_creator/view/screens/settings.dart';
+import 'package:system_creator/view/screens/verification.dart';
 import 'package:system_creator/view/widget/filled_button.dart';
 import 'package:system_creator/view/widget/form.dart';
 import 'package:system_creator/view/widget/text_button.dart';
@@ -26,7 +27,6 @@ class Login extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
-    Settings();
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -71,13 +71,17 @@ class Login extends StatelessWidget {
                     SizedBox(
                       width:
                           double.infinity, // Expand to fill the available width
-                      child: filledButtonCustom(onPressed: () {},text: 'تسجيل الدخول'),
+                      child: filledButtonCustom(
+                          onPressed: () {}, text: 'تسجيل الدخول'),
                     ),
                     SizedBox(
                       width:
                           double.infinity, // Expand to fill the available width
                       child: textButtonCustom(
-                          func: () {}, text: 'نسيت كلمة السر؟'),
+                          func: () {
+                            Get.to(Verification());
+                          },
+                          text: 'نسيت كلمة السر؟'),
                     ),
                   ],
                 ),
@@ -86,7 +90,7 @@ class Login extends StatelessWidget {
                   width: double.infinity,
                   child: elevatedButtonCustom(
                     func: () {
-                      Get.to(Settings());
+                      Get.to(Verification());
                     },
                     text: 'إنشاء حساب',
                   ),

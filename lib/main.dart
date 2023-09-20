@@ -24,12 +24,13 @@ class MyApp extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    Settings();
     return GetMaterialApp(
       debugShowCheckedModeBanner: false,
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeServices().theme,
-      home: CreateCompanyFirstScreen(),
+      home: Login(),
     );
   }
 }

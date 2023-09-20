@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:system_creator/services/size_config.dart';
+import 'package:system_creator/view/screens/create_company_first_screen.dart';
 import 'package:system_creator/view/widget/text_form_field.dart';
 import 'package:system_creator/view/widget/filled_button.dart';
 import 'package:system_creator/view/widget/text_button.dart';
@@ -64,8 +65,11 @@ class Verification extends StatelessWidget {
                     SizedBox(
                       width:
                           double.infinity, // Expand to fill the available width
-                      child:
-                          filledButtonCustom(onPressed: () {}, text: 'تأكيد'),
+                      child: filledButtonCustom(
+                          onPressed: () {
+                            Get.to(CreateCompanyFirstScreen());
+                          },
+                          text: 'تأكيد'),
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
                     Text('0:00'),
