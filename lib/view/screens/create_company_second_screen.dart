@@ -1,5 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:system_creator/services/size_config.dart';
+import 'package:system_creator/view/screens/create_company_third_screen.dart';
 import 'package:system_creator/view/widget/text_form_field.dart';
 import 'package:system_creator/view/widget/filled_button.dart';
 import 'package:system_creator/view/widget/form.dart';
@@ -17,13 +19,6 @@ class _ImagePickerAppState extends State<CreateCompanySecondScreen> {
 
   TextEditingController applicationNameController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-
-  String? validate(value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter some text';
-    }
-    return null;
-  }
 
   File? _image;
 
@@ -43,6 +38,9 @@ class _ImagePickerAppState extends State<CreateCompanySecondScreen> {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    final textTheme = Theme.of(context)
+        .textTheme
+        .apply(displayColor: Theme.of(context).colorScheme.onSurface);
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -55,19 +53,25 @@ class _ImagePickerAppState extends State<CreateCompanySecondScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.1),
-                Text('قم بإنشاء تطبيقك الأول'),
+                SizedBox(height: SizeConfig.screenHeight * 0.07),
+                Text(
+                  'قم بإنشاء تطبيقك الأول',
+                  style: textTheme.headlineSmall!,
+                ),
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
-                LinearProgressIndicator(
+                const LinearProgressIndicator(
                   value: 0.66,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
-                Text('قم بتعبئة التالي ببيانات التطبيق '),
+                Text(
+                  'قم بتعبئة التالي ببيانات التطبيق ',
+                  style: textTheme.bodyLarge!,
+                ),
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
                 Container(
                   alignment: Alignment.centerRight,
-                  child: Text(
-                    'ملاحظة: لا يمكنك تغير هذه البيانات مجانا لاحقا',
+                  child: const Text(
+                    'ملاحظة: لا يمكنك تغير هذه البيانات مجاناً لاحقا',
                     style: TextStyle(color: Colors.red),
                   ),
                 ),
@@ -76,7 +80,7 @@ class _ImagePickerAppState extends State<CreateCompanySecondScreen> {
                   formKey: _formKey,
                   widgets: [
                     textFormFieldCustom(
-                      validate: validate,
+                      validate: (s) {},
                       controller: applicationNameController,
                       label: 'اسم التطبيق',
                       hint: 'ادخل اسم التطبيق',
@@ -85,7 +89,7 @@ class _ImagePickerAppState extends State<CreateCompanySecondScreen> {
                       obscure: false,
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.03),
-                    Text('شعار التطبيق'),
+                    const Text('شعار التطبيق'),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
                     ClipOval(
                       child: _image == null
@@ -93,7 +97,7 @@ class _ImagePickerAppState extends State<CreateCompanySecondScreen> {
                               width: 100,
                               height: 100,
                               color: Colors.grey,
-                              child: Icon(
+                              child: const Icon(
                                 Icons.photo,
                                 size: 50,
                                 color: Colors.white,
@@ -108,12 +112,15 @@ class _ImagePickerAppState extends State<CreateCompanySecondScreen> {
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
                     elevatedButtonCustom(func: _pickImage, text: 'إختر صورة'),
-                    SizedBox(height: SizeConfig.screenHeight * 0.02),
+                    SizedBox(height: SizeConfig.screenHeight * 0.32),
                     SizedBox(
                       width:
                           double.infinity, // Expand to fill the available width
-                      child:
-                          filledButtonCustom(onPressed: () {}, text: 'التالي'),
+                      child: filledButtonCustom(
+                          onPressed: () {
+                            Get.to(CreateCompanyThirdScreen());
+                          },
+                          text: 'التالي'),
                     ),
                   ],
                 ),

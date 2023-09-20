@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:system_creator/services/size_config.dart';
+import 'package:system_creator/view/screens/compaines.dart';
 import 'package:system_creator/view/widget/filled_button.dart';
 import 'package:system_creator/view/widget/form.dart';
 import 'package:system_creator/view/widget/drop_down_box.dart';
@@ -34,6 +35,9 @@ class CreateCompanyThirdScreen extends StatelessWidget {
 
   @override
   Widget build(BuildContext context) {
+    final textTheme = Theme.of(context)
+        .textTheme
+        .apply(displayColor: Theme.of(context).colorScheme.onSurface);
     SizeConfig().init(context);
     return Directionality(
       textDirection: TextDirection.rtl,
@@ -47,18 +51,24 @@ class CreateCompanyThirdScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.1),
-                Text('قم بإنشاء تطبيقك الأول'),
+                SizedBox(height: SizeConfig.screenHeight * 0.07),
+                Text(
+                  'قم بإنشاء تطبيقك الأول',
+                  style: textTheme.headlineSmall!,
+                ),
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
-                LinearProgressIndicator(
+                const LinearProgressIndicator(
                   value: 1.0,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
-                Text('إختر مظهر لتطبيقك'),
+                Text(
+                  'إختر مظهر لتطبيقك',
+                  style: textTheme.bodyLarge!,
+                ),
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
                 Container(
                   alignment: Alignment.centerRight,
-                  child: Text(
+                  child: const Text(
                     'ملاحظة: لا يمكنك تغير مظهر التطبيق مجانا لاحقا',
                     style: TextStyle(color: Colors.red),
                   ),
@@ -82,6 +92,16 @@ class CreateCompanyThirdScreen extends StatelessWidget {
                                     imageList: imgList,
                                     useNetworkImage: true,
                                     ratio: 0.6));
+                          },
+                          text: 'معاينة'),
+                    ),
+                    SizedBox(height: SizeConfig.screenHeight * 0.50),
+                    SizedBox(
+                      width:
+                          double.infinity, // Expand to fill the available width
+                      child: filledButtonCustom(
+                          onPressed: () {
+                            Get.to(Companies());
                           },
                           text: 'تأكيد'),
                     ),

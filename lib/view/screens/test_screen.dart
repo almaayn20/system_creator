@@ -132,15 +132,15 @@ class _ChangeAppThemeState extends State<ChangeAppTheme>
         appBar: appBarCustom(
           title: 'صانع التطبيقات',
         ),
-        body: TabBarWidget(
-          tabController: _tabController,
-          tabs: tabsTitles,
-          tabViews: [
-            page(context),
-            page2(context),
-            page3(context),
-          ],
-        ),
+        // body: TabBarWidget(
+        //   tabController: _tabController,
+        //   tabs: tabsTitles,
+        //   tabViews: [
+        //     page(context),
+        //     page2(context),
+        //     page3(context),
+        //   ],
+        // ),
       ),
     );
   }

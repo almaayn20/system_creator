@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
 import 'package:system_creator/services/size_config.dart';
+import 'package:system_creator/view/screens/create_company_second_screen.dart';
 import 'package:system_creator/view/widget/text_form_field.dart';
 import 'package:system_creator/view/widget/filled_button.dart';
 import 'package:system_creator/view/widget/form.dart';
@@ -27,16 +28,12 @@ class CreateCompanyFirstScreen extends StatelessWidget {
   ];
   final _formKey = GlobalKey<FormState>();
 
-  String? validate(value) {
-    if (value == null || value.isEmpty) {
-      return 'Please enter some text';
-    }
-    return null;
-  }
-
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    final textTheme = Theme.of(context)
+        .textTheme
+        .apply(displayColor: Theme.of(context).colorScheme.onSurface);
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -49,20 +46,26 @@ class CreateCompanyFirstScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.09),
-                Text('قم بإنشاء تطبيقك الأول'),
+                SizedBox(height: SizeConfig.screenHeight * 0.07),
+                Text(
+                  'قم بإنشاء تطبيقك الأول',
+                  style: textTheme.headlineSmall!,
+                ),
                 SizedBox(height: SizeConfig.screenHeight * 0.02),
-                LinearProgressIndicator(
+                const LinearProgressIndicator(
                   value: 0.33,
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.01),
-                Text('قم بتعبئة التالي ببيانات شركتك '),
+                Text(
+                  'قم بتعبئة التالي ببيانات شركتك ',
+                  style: textTheme.bodyLarge!,
+                ),
                 SizedBox(height: SizeConfig.screenHeight * 0.03),
                 formCustom(
                   formKey: _formKey,
                   widgets: [
                     textFormFieldCustom(
-                      validate: validate,
+                      validate: (s) {},
                       controller: companyNameController,
                       label: 'اسم الشركة',
                       hint: 'ادخل اسم الشركة',
@@ -75,10 +78,10 @@ class CreateCompanyFirstScreen extends StatelessWidget {
                       width: SizeConfig.screenWidth * 0.9,
                       child: Row(
                         children: [
-                          Container(
+                          SizedBox(
                             width: SizeConfig.screenWidth * 0.6,
                             child: textFormFieldCustom(
-                              validate: validate,
+                              validate: (s) {},
                               controller: ownerCardController,
                               label: 'هوية المالك',
                               hint: 'اضف هوية المالك',
@@ -86,6 +89,9 @@ class CreateCompanyFirstScreen extends StatelessWidget {
                               kbtype: TextInputType.number,
                               obscure: false,
                             ),
+                          ),
+                          SizedBox(
+                            width: SizeConfig.screenWidth * 0.04,
                           ),
                           elevatedButtonCustom(func: () {}, text: 'إختر صورة'),
                         ],
@@ -96,10 +102,10 @@ class CreateCompanyFirstScreen extends StatelessWidget {
                       width: SizeConfig.screenWidth * 0.9,
                       child: Row(
                         children: [
-                          Container(
+                          SizedBox(
                             width: SizeConfig.screenWidth * 0.6,
                             child: textFormFieldCustom(
-                              validate: validate,
+                              validate: (s) {},
                               controller: commericalNumberController,
                               label: 'الرقم التجاري',
                               hint: 'أضف الرقم التجاري',
@@ -108,13 +114,16 @@ class CreateCompanyFirstScreen extends StatelessWidget {
                               obscure: false,
                             ),
                           ),
+                          SizedBox(
+                            width: SizeConfig.screenWidth * 0.04,
+                          ),
                           elevatedButtonCustom(func: () {}, text: 'إختر صورة'),
                         ],
                       ),
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
                     textFormFieldCustom(
-                      validate: validate,
+                      validate: (s) {},
                       controller: phoneController,
                       label: 'رقم الهاتف',
                       hint: 'ادخل رقم الهاتف',
@@ -124,7 +133,7 @@ class CreateCompanyFirstScreen extends StatelessWidget {
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
                     textFormFieldCustom(
-                      validate: validate,
+                      validate: (s) {},
                       controller: descriptionController,
                       label: 'وصف الشركة',
                       hint: 'ادخل وصف للشركة',
@@ -134,7 +143,7 @@ class CreateCompanyFirstScreen extends StatelessWidget {
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
                     textFormFieldCustom(
-                      validate: validate,
+                      validate: (s) {},
                       controller: webController,
                       label: 'صفحة ويب (اختياري)',
                       hint: 'ادخل صفحة ويب (اختياري)',
@@ -144,7 +153,7 @@ class CreateCompanyFirstScreen extends StatelessWidget {
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
                     textFormFieldCustom(
-                      validate: validate,
+                      validate: (s) {},
                       controller: addressController,
                       label: 'عنوان الشركة',
                       hint: 'ادخل عنوان الشركة',
@@ -155,10 +164,16 @@ class CreateCompanyFirstScreen extends StatelessWidget {
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
                     DropDownMenuCustom(bankEntries, 'نوع النظام'),
                     SizedBox(
+                      height: SizeConfig.screenHeight * 0.04,
+                    ),
+                    SizedBox(
                       width:
                           double.infinity, // Expand to fill the available width
-                      child:
-                          filledButtonCustom(onPressed: () {}, text: 'التالي'),
+                      child: filledButtonCustom(
+                          onPressed: () {
+                            Get.to(CreateCompanySecondScreen());
+                          },
+                          text: 'التالي'),
                     ),
                   ],
                 ),
