@@ -1,4 +1,5 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 
 import '../widget/app_bar.dart';
 import '../widget/icon_button.dart';
@@ -13,7 +14,11 @@ class CompanyManagement extends StatelessWidget {
       textDirection: TextDirection.rtl,
       child: Scaffold(
         appBar: appBarCustom(
-          leading: iconButtonCustom(func: () {}, icon: Icons.arrow_back),
+          leading: iconButtonCustom(
+              func: () {
+                Get.back();
+              },
+              icon: Icons.arrow_back),
           title: 'صانع التطبيقات',
           centertitle: true,
         ),

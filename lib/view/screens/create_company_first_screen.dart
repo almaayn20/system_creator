@@ -1,5 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter/rendering.dart';
+import 'package:system_creator/controller/image_picker_controller.dart';
 import 'package:system_creator/services/size_config.dart';
 import 'package:system_creator/view/screens/create_company_second_screen.dart';
 import 'package:system_creator/view/widget/text_form_field.dart';
@@ -10,8 +11,14 @@ import 'package:system_creator/view/widget/drop_down_box.dart';
 import 'package:get/get.dart';
 import 'package:tuple/tuple.dart';
 
+import '../widget/app_bar.dart';
+import '../widget/icon_button.dart';
+
 class CreateCompanyFirstScreen extends StatelessWidget {
   CreateCompanyFirstScreen({Key? key}) : super(key: key);
+
+  final ImagePickerController imageController1 = ImagePickerController();
+  final ImagePickerController imageController2 = ImagePickerController();
 
   TextEditingController companyNameController = TextEditingController();
   TextEditingController ownerCardController = TextEditingController();
@@ -31,12 +38,17 @@ class CreateCompanyFirstScreen extends StatelessWidget {
   @override
   Widget build(BuildContext context) {
     SizeConfig().init(context);
+    double spacer = SizeConfig.screenHeight * 0.02;
     final textTheme = Theme.of(context)
         .textTheme
         .apply(displayColor: Theme.of(context).colorScheme.onSurface);
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        appBar: appBarCustom(
+          title: 'صانع التطبيقات',
+          centertitle: true,
+        ),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.symmetric(
@@ -46,7 +58,6 @@ class CreateCompanyFirstScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.07),
                 Text(
                   'قم بإنشاء تطبيقك الأول',
                   style: textTheme.headlineSmall!,
@@ -73,75 +84,103 @@ class CreateCompanyFirstScreen extends StatelessWidget {
                       kbtype: TextInputType.text,
                       obscure: false,
                     ),
-                    SizedBox(height: SizeConfig.screenHeight * 0.01),
+                    SizedBox(height: spacer),
                     SizedBox(
                       width: SizeConfig.screenWidth * 0.9,
                       child: Row(
                         children: [
-                          SizedBox(
-                            width: SizeConfig.screenWidth * 0.6,
-                            child: textFormFieldCustom(
-                              validate: (s) {},
-                              controller: ownerCardController,
-                              label: 'هوية المالك',
-                              hint: 'اضف هوية المالك',
-                              suffix: Icons.credit_card,
-                              kbtype: TextInputType.number,
-                              obscure: false,
-                            ),
+                          ClipOval(
+                            child: Obx(() {
+                              final selectedImage =
+                                  imageController1.selectedImage.value;
+                              return selectedImage == null
+                                  ? Container(
+                                      width: 100,
+                                      height: 100,
+                                      color: Colors.grey,
+                                      child: const Icon(
+                                        Icons.photo,
+                                        size: 50,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  : Image.file(
+                                      selectedImage,
+                                      width: 100,
+                                      height: 100,
+                                      fit: BoxFit.cover,
+                                    );
+                            }),
                           ),
-                          SizedBox(
-                            width: SizeConfig.screenWidth * 0.04,
+                          Expanded(
+                            child: elevatedButtonCustom(
+                                func: () async {
+                                  await imageController1.pickImage(context);
+                                },
+                                text: 'اختر صورة الهوية'),
                           ),
-                          elevatedButtonCustom(func: () {}, text: 'إختر صورة'),
                         ],
                       ),
                     ),
-                    SizedBox(height: SizeConfig.screenHeight * 0.01),
+                    SizedBox(height: spacer),
                     SizedBox(
                       width: SizeConfig.screenWidth * 0.9,
                       child: Row(
                         children: [
-                          SizedBox(
-                            width: SizeConfig.screenWidth * 0.6,
-                            child: textFormFieldCustom(
-                              validate: (s) {},
-                              controller: commericalNumberController,
-                              label: 'الرقم التجاري',
-                              hint: 'أضف الرقم التجاري',
-                              suffix: Icons.card_membership_outlined,
-                              kbtype: TextInputType.number,
-                              obscure: false,
-                            ),
+                          ClipOval(
+                            child: Obx(() {
+                              final selectedImage =
+                                  imageController2.selectedImage.value;
+                              return selectedImage == null
+                                  ? Container(
+                                      width: 100,
+                                      height: 100,
+                                      color: Colors.grey,
+                                      child: const Icon(
+                                        Icons.photo,
+                                        size: 50,
+                                        color: Colors.white,
+                                      ),
+                                    )
+                                  : Image.file(
+                                      selectedImage,
+                                      width: 100,
+                                      height: 100,
+                                      fit: BoxFit.cover,
+                                    );
+                            }),
                           ),
-                          SizedBox(
-                            width: SizeConfig.screenWidth * 0.04,
+                          Expanded(
+                            child: elevatedButtonCustom(
+                                func: () async {
+                                  await imageController2.pickImage(context);
+                                },
+                                text: 'إختر صورة السجل التجاري'),
                           ),
-                          elevatedButtonCustom(func: () {}, text: 'إختر صورة'),
                         ],
                       ),
                     ),
-                    SizedBox(height: SizeConfig.screenHeight * 0.01),
+                    SizedBox(height: spacer),
                     textFormFieldCustom(
                       validate: (s) {},
                       controller: phoneController,
                       label: 'رقم الهاتف',
                       hint: 'ادخل رقم الهاتف',
                       suffix: Icons.phone_android_outlined,
-                      kbtype: TextInputType.number,
+                      kbtype: TextInputType.phone,
                       obscure: false,
                     ),
-                    SizedBox(height: SizeConfig.screenHeight * 0.01),
+                    SizedBox(height: spacer),
                     textFormFieldCustom(
                       validate: (s) {},
                       controller: descriptionController,
                       label: 'وصف الشركة',
                       hint: 'ادخل وصف للشركة',
                       suffix: Icons.text_snippet_outlined,
-                      kbtype: TextInputType.text,
+                      kbtype: TextInputType.multiline,
                       obscure: false,
                     ),
-                    SizedBox(height: SizeConfig.screenHeight * 0.01),
+                    SizedBox(height: spacer),
                     textFormFieldCustom(
                       validate: (s) {},
                       controller: webController,
@@ -151,21 +190,19 @@ class CreateCompanyFirstScreen extends StatelessWidget {
                       kbtype: TextInputType.text,
                       obscure: false,
                     ),
-                    SizedBox(height: SizeConfig.screenHeight * 0.01),
+                    SizedBox(height: spacer),
                     textFormFieldCustom(
                       validate: (s) {},
                       controller: addressController,
                       label: 'عنوان الشركة',
                       hint: 'ادخل عنوان الشركة',
                       suffix: Icons.location_on_outlined,
-                      kbtype: TextInputType.text,
+                      kbtype: TextInputType.streetAddress,
                       obscure: false,
                     ),
-                    SizedBox(height: SizeConfig.screenHeight * 0.01),
+                    SizedBox(height: spacer),
                     DropDownMenuCustom(bankEntries, 'نوع النظام'),
-                    SizedBox(
-                      height: SizeConfig.screenHeight * 0.04,
-                    ),
+                    SizedBox(height: spacer),
                     SizedBox(
                       width:
                           double.infinity, // Expand to fill the available width

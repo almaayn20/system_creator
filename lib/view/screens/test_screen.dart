@@ -186,7 +186,7 @@ class _ChangeAppThemeState extends State<ChangeAppTheme>
                   },
                   text: 'date picker'),
               elevatedButtonCustom(
-                  func: () => bottomSheet(
+                  func: () => bottomSheetCustom(
                         context,
                         300,
                         [

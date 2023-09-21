@@ -10,6 +10,8 @@ import 'package:system_creator/view/widget/carousel_slider.dart';
 import 'package:get/get.dart';
 import 'package:tuple/tuple.dart';
 
+import '../widget/app_bar.dart';
+
 class CreateCompanyThirdScreen extends StatelessWidget {
   CreateCompanyThirdScreen({Key? key}) : super(key: key);
 
@@ -42,6 +44,10 @@ class CreateCompanyThirdScreen extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        appBar: appBarCustom(
+          title: 'صانع التطبيقات',
+          centertitle: true,
+        ),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.symmetric(
@@ -51,7 +57,7 @@ class CreateCompanyThirdScreen extends StatelessWidget {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.07),
+                SizedBox(height: SizeConfig.screenHeight * 0.02),
                 Text(
                   'قم بإنشاء تطبيقك الأول',
                   style: textTheme.headlineSmall!,
@@ -95,7 +101,6 @@ class CreateCompanyThirdScreen extends StatelessWidget {
                           },
                           text: 'معاينة'),
                     ),
-                    SizedBox(height: SizeConfig.screenHeight * 0.50),
                     SizedBox(
                       width:
                           double.infinity, // Expand to fill the available width

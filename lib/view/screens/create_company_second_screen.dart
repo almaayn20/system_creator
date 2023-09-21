@@ -6,38 +6,15 @@ import 'package:system_creator/view/widget/text_form_field.dart';
 import 'package:system_creator/view/widget/filled_button.dart';
 import 'package:system_creator/view/widget/form.dart';
 import 'package:system_creator/view/widget/Button.dart';
-import 'package:image_picker/image_picker.dart';
-import 'dart:io';
 
-class CreateCompanySecondScreen extends StatefulWidget {
-  @override
-  _ImagePickerAppState createState() => _ImagePickerAppState();
-}
+import '../../controller/image_picker_controller.dart';
+import '../widget/app_bar.dart';
 
-class _ImagePickerAppState extends State<CreateCompanySecondScreen> {
-  // CreateCompanySecondScreen({Key? key}) : super(key: key);
+class CreateCompanySecondScreen extends StatelessWidget {
+  final ImagePickerController imageController = ImagePickerController();
 
   TextEditingController applicationNameController = TextEditingController();
   final _formKey = GlobalKey<FormState>();
-
-  File? _image;
-
-  Future _pickImage() async {
-    try {
-      final picker = ImagePicker();
-      final pickedFile = await picker.pickImage(source: ImageSource.gallery);
-
-      setState(() {
-        if (pickedFile != null) {
-          _image = File(pickedFile.path);
-        } else {
-          print('No image selected.');
-        }
-      });
-    } catch (e) {
-      print(e);
-    }
-  }
 
   @override
   Widget build(BuildContext context) {
@@ -48,6 +25,10 @@ class _ImagePickerAppState extends State<CreateCompanySecondScreen> {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        appBar: appBarCustom(
+          title: 'صانع التطبيقات',
+          centertitle: true,
+        ),
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.symmetric(
@@ -57,7 +38,7 @@ class _ImagePickerAppState extends State<CreateCompanySecondScreen> {
               mainAxisAlignment: MainAxisAlignment.center,
               crossAxisAlignment: CrossAxisAlignment.center,
               children: [
-                SizedBox(height: SizeConfig.screenHeight * 0.07),
+                SizedBox(height: SizeConfig.screenHeight * 0.02),
                 Text(
                   'قم بإنشاء تطبيقك الأول',
                   style: textTheme.headlineSmall!,
@@ -96,30 +77,36 @@ class _ImagePickerAppState extends State<CreateCompanySecondScreen> {
                     const Text('شعار التطبيق'),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
                     ClipOval(
-                      child: _image == null
-                          ? Container(
-                              width: 100,
-                              height: 100,
-                              color: Colors.grey,
-                              child: const Icon(
-                                Icons.photo,
-                                size: 50,
-                                color: Colors.white,
-                              ),
-                            )
-                          : Image.file(
-                              _image!,
-                              width: 100,
-                              height: 100,
-                              fit: BoxFit.cover,
-                            ),
+                      child: Obx(() {
+                        final selectedImage =
+                            imageController.selectedImage.value;
+                        return selectedImage == null
+                            ? Container(
+                                width: 100,
+                                height: 100,
+                                color: Colors.grey,
+                                child: const Icon(
+                                  Icons.photo,
+                                  size: 50,
+                                  color: Colors.white,
+                                ),
+                              )
+                            : Image.file(
+                                selectedImage,
+                                width: 100,
+                                height: 100,
+                                fit: BoxFit.cover,
+                              );
+                      }),
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
-                    elevatedButtonCustom(func: _pickImage, text: 'إختر صورة'),
-                    SizedBox(height: SizeConfig.screenHeight * 0.32),
+                    elevatedButtonCustom(
+                        func: () async {
+                          await imageController.pickImage(context);
+                        },
+                        text: 'إختر صورة'),
                     SizedBox(
-                      width:
-                          double.infinity, // Expand to fill the available width
+                      width: double.infinity,
                       child: filledButtonCustom(
                           onPressed: () {
                             Get.to(CreateCompanyThirdScreen());

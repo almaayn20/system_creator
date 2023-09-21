@@ -10,7 +10,10 @@ TextFormField textFormFieldCustom({
   IconData? prefix,
   IconData? suffix,
   required bool obscure,
-  required TextInputType kbtype,
+  TextInputType? kbtype,
+  bool enabled = true,
+  Function()? onTab,
+  bool readonly = true,
 }) {
   return TextFormField(
     decoration: InputDecoration(
@@ -21,7 +24,10 @@ TextFormField textFormFieldCustom({
       helperText: helper,
       errorText: error,
       border: const OutlineInputBorder(),
+      enabled: enabled,
     ),
+    onTap: onTab,
+    readOnly: readonly,
     validator: validate,
     obscureText: obscure,
     keyboardType: kbtype,

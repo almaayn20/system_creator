@@ -11,7 +11,8 @@ TextField textFieldCustom(
     IconData? prefix,
     IconData? suffix,
     required bool obscure,
-    required kbtype}) {
+    required kbtype,
+    Function()? onTap}) {
   return TextField(
     decoration: InputDecoration(
       prefixIcon: Icon(prefix),
@@ -22,6 +23,7 @@ TextField textFieldCustom(
       errorText: error,
       border: const OutlineInputBorder(),
     ),
+    onTap: onTap,
     obscureText: obscure,
     keyboardType: kbtype,
     controller: controller,
