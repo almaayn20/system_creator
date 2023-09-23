@@ -45,6 +45,7 @@ class CreateCompanyFirstScreen extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: appBarCustom(
           title: 'صانع التطبيقات',
           centertitle: true,
@@ -212,6 +213,7 @@ class CreateCompanyFirstScreen extends StatelessWidget {
                           },
                           text: 'التالي'),
                     ),
+                    SizedBox(height: spacer),
                   ],
                 ),
               ],

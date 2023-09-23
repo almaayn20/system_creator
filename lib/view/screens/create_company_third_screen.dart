@@ -44,6 +44,7 @@ class CreateCompanyThirdScreen extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: appBarCustom(
           title: 'صانع التطبيقات',
           centertitle: true,
@@ -101,6 +102,7 @@ class CreateCompanyThirdScreen extends StatelessWidget {
                           },
                           text: 'معاينة'),
                     ),
+                    SizedBox(height: SizeConfig.screenHeight * 0.01),
                     SizedBox(
                       width:
                           double.infinity, // Expand to fill the available width
@@ -110,6 +112,7 @@ class CreateCompanyThirdScreen extends StatelessWidget {
                           },
                           text: 'تأكيد'),
                     ),
+                    SizedBox(height: SizeConfig.screenHeight * 0.01),
                   ],
                 ),
               ],

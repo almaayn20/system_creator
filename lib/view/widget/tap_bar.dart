@@ -1,9 +1,12 @@
 import 'package:flutter/material.dart';
+import 'package:get/get.dart';
 import 'package:tuple/tuple.dart';
+import 'package:system_creator/controller/features_tab_controller.dart';
 
 class TabBarWidget extends StatelessWidget {
   final List<Widget> tabViews;
   final List<Tuple2<String, IconData>> tabs;
+  final FeaturesTabController tabController = Get.find();
 
   TabBarWidget({required this.tabs, required this.tabViews});
 
@@ -14,7 +17,7 @@ class TabBarWidget extends StatelessWidget {
       child: Column(
         children: [
           TabBar(
-            //  isScrollable: true,
+            //   isScrollable: true,
             tabs: [
               for (var tab in tabs)
                 Tab(
@@ -23,6 +26,7 @@ class TabBarWidget extends StatelessWidget {
                   iconMargin: const EdgeInsets.only(bottom: 0.0),
                 ),
             ],
+            onTap: (value) => tabController.updateTabIndex(value),
           ),
           Expanded(
             child: TabBarView(

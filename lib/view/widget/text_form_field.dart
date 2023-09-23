@@ -13,7 +13,7 @@ TextFormField textFormFieldCustom({
   TextInputType? kbtype,
   bool enabled = true,
   Function()? onTab,
-  bool readonly = true,
+  bool readonly = false,
 }) {
   return TextFormField(
     decoration: InputDecoration(

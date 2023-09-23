@@ -16,12 +16,12 @@ class ImagePickerController extends GetxController {
         final File file = File(xFile.path); // Convert XFile to File
         selectedImage.value = file;
       } else {
-        snackBarCustom(context, 'No image selected.', 'Close',
+        snackBarCustom(context, 'لم يتم تحديد أي صورة!', 'إخفاء',
             () => Navigator.of(context).pop());
       }
     } catch (e) {
       snackBarCustom(
-          context, 'Error: $e', 'Close', () => Navigator.of(context).pop());
+          context, 'Error: $e', 'إخفاء', () => Navigator.of(context).pop());
     }
   }
 }

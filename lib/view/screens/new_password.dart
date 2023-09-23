@@ -26,6 +26,7 @@ class NewPassword extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: appBarCustom(
           leading: iconButtonCustom(func: () {}, icon: Icons.arrow_back),
           title: 'صانع التطيبقات',

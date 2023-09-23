@@ -25,6 +25,7 @@ class CreateCompanySecondScreen extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: appBarCustom(
           title: 'صانع التطبيقات',
           centertitle: true,
@@ -105,6 +106,7 @@ class CreateCompanySecondScreen extends StatelessWidget {
                           await imageController.pickImage(context);
                         },
                         text: 'إختر صورة'),
+                    SizedBox(height: SizeConfig.screenHeight * 0.01),
                     SizedBox(
                       width: double.infinity,
                       child: filledButtonCustom(
@@ -113,6 +115,7 @@ class CreateCompanySecondScreen extends StatelessWidget {
                           },
                           text: 'التالي'),
                     ),
+                    SizedBox(height: SizeConfig.screenHeight * 0.01),
                   ],
                 ),
               ],

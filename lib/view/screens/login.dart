@@ -30,6 +30,7 @@ class Login extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         body: SingleChildScrollView(
           child: Container(
             padding: EdgeInsets.symmetric(

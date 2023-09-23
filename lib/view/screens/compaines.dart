@@ -3,12 +3,14 @@ import 'package:system_creator/main.dart';
 import 'package:system_creator/services/size_config.dart';
 import 'package:system_creator/view/screens/create_company_first_screen.dart';
 import 'package:system_creator/view/screens/features_screens/advertisement.dart';
+import 'package:system_creator/view/screens/features_screens/notifications.dart';
 import 'package:system_creator/view/screens/login.dart';
 import 'package:system_creator/view/screens/settings.dart';
 import 'package:get/get.dart';
 import 'package:system_creator/view/widget/card.dart';
 import 'package:tuple/tuple.dart';
 
+import '../../controller/features_tab_controller.dart';
 import '../widget/app_bar.dart';
 import '../widget/icon_button.dart';
 import '../widget/list_Card.dart';
@@ -18,6 +20,7 @@ import '../widget/tap_bar.dart';
 
 class Companies extends StatelessWidget {
   Companies({Key? key}) : super(key: key);
+  final FeaturesTabController tabController = Get.put(FeaturesTabController());
 
   List<Map<String, dynamic>> cardDataList = [
     {
@@ -26,12 +29,7 @@ class Companies extends StatelessWidget {
       'title': 'مطاعم الدار',
       'subtitle': '2 فروع',
     },
-    {
-      'imageUrl':
-          'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
-      'title': 'مطاعم الدار',
-      'subtitle': '2 فروع',
-    },
+
     // Add more data objects here...
   ];
 
@@ -47,6 +45,22 @@ class Companies extends StatelessWidget {
           'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
       'title': 'تاريخ البدء : 21/9/2023',
       'subtitle': 'تاريخ الإنتهاء : 28/9/2023',
+    },
+    // Add more data objects here...
+  ];
+
+  List<Map<String, dynamic>> notificatios = [
+    {
+      'imageUrl':
+          'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
+      'title': 'تاريخ البدء : 21/9/2023',
+      'body': 'تاريخ الإنتهاء : 28/9/2023',
+    },
+    {
+      'imageUrl':
+          'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
+      'title': 'تاريخ البدء : 21/9/2023',
+      'body': 'تاريخ الإنتهاء : 28/9/2023',
     },
     // Add more data objects here...
   ];
@@ -72,13 +86,18 @@ class Companies extends StatelessWidget {
               cardDataList: ads,
             ),
           ),
-          Scaffold(),
+          Notifications(
+            notificationsList: CardListView(
+              cardDataList: ads,
+            ),
+          ),
         ],
       ),
     ];
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: appBarCustom(
           leading: iconButtonCustom(
               func: () {}, icon: Icons.account_circle_outlined),

@@ -13,6 +13,7 @@ class CompanyManagement extends StatelessWidget {
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
+        resizeToAvoidBottomInset: true,
         appBar: appBarCustom(
           leading: iconButtonCustom(
               func: () {

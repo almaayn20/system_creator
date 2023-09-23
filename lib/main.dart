@@ -4,7 +4,6 @@ import 'package:system_creator/view/screens/compaines.dart';
 import 'package:system_creator/view/screens/company_features.dart';
 import 'package:system_creator/view/screens/create_company_third_screen.dart';
 import 'package:system_creator/view/screens/settings.dart';
-import 'package:system_creator/view/screens/test_screen.dart';
 import 'package:system_creator/view/screens/login.dart';
 import 'package:system_creator/view/screens/signup.dart';
 import 'package:system_creator/view/screens/new_password.dart';
@@ -31,7 +30,7 @@ class MyApp extends StatelessWidget {
       theme: lightTheme,
       darkTheme: darkTheme,
       themeMode: ThemeServices().theme,
-      home: CreateCompanyThirdScreen(),
+      home: Login(),
     );
   }
 }
