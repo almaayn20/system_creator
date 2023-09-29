@@ -1,10 +1,15 @@
 import 'package:flutter/material.dart';
+import 'package:system_creator/controller/management_tab_controller%20.dart';
 import 'package:system_creator/main.dart';
 import 'package:system_creator/services/size_config.dart';
 import 'package:system_creator/view/screens/create_company_first_screen.dart';
 import 'package:system_creator/view/screens/features_screens/advertisement.dart';
 import 'package:system_creator/view/screens/features_screens/notifications.dart';
 import 'package:system_creator/view/screens/login.dart';
+import 'package:system_creator/view/screens/management_screens/branches.dart';
+import 'package:system_creator/view/screens/management_screens/info.dart';
+import 'package:system_creator/view/screens/management_screens/social_medial.dart';
+import 'package:system_creator/view/screens/management_screens/updates.dart';
 import 'package:system_creator/view/screens/settings.dart';
 import 'package:get/get.dart';
 import 'package:system_creator/view/widget/card.dart';
@@ -21,6 +26,8 @@ import '../widget/tap_bar.dart';
 class Companies extends StatelessWidget {
   Companies({Key? key}) : super(key: key);
   final FeaturesTabController tabController = Get.put(FeaturesTabController());
+  final ManagementTabController tabController2 =
+      Get.put(ManagementTabController());
 
   List<Map<String, dynamic>> cardDataList = [
     {
@@ -49,25 +56,65 @@ class Companies extends StatelessWidget {
     // Add more data objects here...
   ];
 
-  List<Map<String, dynamic>> notificatios = [
+  List<Map<String, dynamic>> branches = [
     {
       'imageUrl':
           'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
-      'title': 'تاريخ البدء : 21/9/2023',
-      'body': 'تاريخ الإنتهاء : 28/9/2023',
+      'title': 'الفرع 1',
+      'subtitle': ' ',
     },
     {
       'imageUrl':
           'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
-      'title': 'تاريخ البدء : 21/9/2023',
-      'body': 'تاريخ الإنتهاء : 28/9/2023',
+      'title': 'الفرع 2',
+      'subtitle': ' ',
     },
     // Add more data objects here...
   ];
 
-  List<Tuple2<String, IconData>> tabsTitles = const [
+  List<Map<String, dynamic>> socialMedial = [
+    {
+      'imageUrl':
+          'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
+      'title': 'فيسبوك',
+      'subtitle': 'http://www.',
+    },
+    {
+      'imageUrl':
+          'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
+      'title': 'يوتيوب',
+      'subtitle': 'http://www.',
+    },
+    // Add more data objects here...
+  ];
+
+  List<Map<String, dynamic>> notificatios = [
+    {
+      'imageUrl':
+          'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
+      'title': 'العنوان : عروض خاصة',
+      'body': 'المحتوى : تصفح الآن قائمة عروضنا بمناسبة الشهر الكريم',
+    },
+
+    {
+      'imageUrl':
+          'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
+      'title': 'العنوان : عروض خاصة',
+      'body': 'المحتوى : تصفح الآن قائمة عروضنا بمناسبة الشهر الكريم',
+    },
+    // Add more data objects here...
+  ];
+
+  List<Tuple2<String, IconData>> featuresTabsTitles = const [
     Tuple2('الإعلانات', Icons.add_a_photo_outlined),
     Tuple2('الإشعارات', Icons.notification_add_outlined),
+  ];
+
+  List<Tuple2<String, IconData>> managementTabsTitles = const [
+    Tuple2('الفروع', Icons.segment_outlined),
+    Tuple2('التواصل الإجتماعي', Icons.phone_android_outlined),
+    Tuple2('التحديثات', Icons.update_outlined),
+    Tuple2('التفاصيل', Icons.info_outline),
   ];
 
   @override
@@ -76,10 +123,9 @@ class Companies extends StatelessWidget {
         .textTheme
         .apply(displayColor: Theme.of(context).colorScheme.onSurface);
     SizeConfig().init(context);
-    Settings();
     final fea = [
       TabBarWidget(
-        tabs: tabsTitles,
+        tabs: featuresTabsTitles,
         tabViews: [
           Advertisement(
             adsList: CardListView(
@@ -92,8 +138,31 @@ class Companies extends StatelessWidget {
             ),
           ),
         ],
+        callerScreen: 'features',
       ),
     ];
+
+    final manag = [
+      TabBarWidget(
+        tabs: managementTabsTitles,
+        tabViews: [
+          Branches(
+            branchesList: CardListView(
+              cardDataList: branches,
+            ),
+          ),
+          SocialMedia(
+            socialMediaList: CardListView(
+              cardDataList: socialMedial,
+            ),
+          ),
+          Info(),
+          Updates(),
+        ],
+        callerScreen: 'management',
+      ),
+    ];
+
     return Directionality(
       textDirection: TextDirection.rtl,
       child: Scaffold(
@@ -120,7 +189,7 @@ class Companies extends StatelessWidget {
                   child: CompanyCardListView(
                 cardDataList: cardDataList,
                 featuresTabs: fea,
-                managementTabs: fea,
+                managementTabs: manag,
               )),
             ],
           ),

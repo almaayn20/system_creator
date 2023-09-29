@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 
 import '../../../controller/features_tab_controller.dart';
 import '../../../controller/image_picker_controller.dart';
+import '../../../services/size_config.dart';
 import '../../widget/bottom_sheet.dart';
 import '../../widget/filled_button.dart';
 import '../../widget/form.dart';
@@ -32,7 +33,7 @@ class NotificationsBottomSheet {
   final FeaturesTabController tabController = Get.find();
 
   Future<void> show(BuildContext context) {
-    double spacer = 20;
+    double spacer = SizeConfig.screenHeight * 0.02;
     return bottomSheetCustom(
         context,
         formCustom(formKey: _formKey, widgets: [
@@ -103,13 +104,6 @@ class NotificationsBottomSheet {
           SizedBox(
               width: double.infinity,
               child: filledButtonCustom(onPressed: () {}, text: 'اضافة')),
-          SizedBox(
-              width: double.infinity,
-              child: FilledButton(
-                  onPressed: () {},
-                  style: const ButtonStyle(
-                      backgroundColor: MaterialStatePropertyAll(Colors.red)),
-                  child: const Text('حذف'))),
         ]));
   }
 }

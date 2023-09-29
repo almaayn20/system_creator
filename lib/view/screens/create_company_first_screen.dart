@@ -185,8 +185,8 @@ class CreateCompanyFirstScreen extends StatelessWidget {
                     textFormFieldCustom(
                       validate: (s) {},
                       controller: webController,
-                      label: 'صفحة ويب (اختياري)',
-                      hint: 'ادخل صفحة ويب (اختياري)',
+                      label: 'صفحة الويب (اختياري)',
+                      hint: 'ادخل رابط صفحة الويب (اختياري)',
                       suffix: Icons.view_comfortable_outlined,
                       kbtype: TextInputType.text,
                       obscure: false,

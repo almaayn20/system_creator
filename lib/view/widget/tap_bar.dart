@@ -3,12 +3,17 @@ import 'package:get/get.dart';
 import 'package:tuple/tuple.dart';
 import 'package:system_creator/controller/features_tab_controller.dart';
 
+import '../../controller/management_tab_controller .dart';
+
 class TabBarWidget extends StatelessWidget {
   final List<Widget> tabViews;
   final List<Tuple2<String, IconData>> tabs;
-  final FeaturesTabController tabController = Get.find();
+  final FeaturesTabController featuresTabController = Get.find();
+  final ManagementTabController managementTabController = Get.find();
+  final String callerScreen;
 
-  TabBarWidget({required this.tabs, required this.tabViews});
+  TabBarWidget(
+      {required this.tabs, required this.tabViews, required this.callerScreen});
 
   @override
   Widget build(BuildContext context) {
@@ -17,7 +22,7 @@ class TabBarWidget extends StatelessWidget {
       child: Column(
         children: [
           TabBar(
-            //   isScrollable: true,
+            // isScrollable: true,
             tabs: [
               for (var tab in tabs)
                 Tab(
@@ -26,7 +31,13 @@ class TabBarWidget extends StatelessWidget {
                   iconMargin: const EdgeInsets.only(bottom: 0.0),
                 ),
             ],
-            onTap: (value) => tabController.updateTabIndex(value),
+            onTap: (value) {
+              if (callerScreen == 'features') {
+                featuresTabController.updateTabIndex(value);
+              } else {
+                managementTabController.updateTabIndex(value);
+              }
+            },
           ),
           Expanded(
             child: TabBarView(
@@ -38,6 +49,7 @@ class TabBarWidget extends StatelessWidget {
     );
   }
 }
+
 
 //الاستدعاء
 /*

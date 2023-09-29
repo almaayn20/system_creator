@@ -1,8 +1,6 @@
 import 'package:flutter/material.dart';
 import 'package:flutter_colorpicker/flutter_colorpicker.dart';
 
-import '../../services/theme_Services.dart';
-
 ElevatedButton colorPickerCustom(
     BuildContext context, Color currentColor, Function(Color) changeColor) {
   return ElevatedButton(
