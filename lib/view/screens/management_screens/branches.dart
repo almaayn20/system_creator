@@ -4,6 +4,7 @@ import 'package:get/get.dart';
 import '../../../controller/features_tab_controller.dart';
 import '../../../services/size_config.dart';
 import '../../widget/bottom_sheet.dart';
+import '../../widget/branch_card_list.dart';
 import '../../widget/filled_button.dart';
 import '../../widget/form.dart';
 import '../../widget/list_Card.dart';
@@ -11,7 +12,7 @@ import '../../widget/text_Form_field.dart';
 
 class Branches extends StatelessWidget {
   const Branches({super.key, required this.branchesList});
-  final CardListView branchesList;
+  final BranchCardListView branchesList;
 
   @override
   Widget build(BuildContext context) {

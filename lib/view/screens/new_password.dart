@@ -56,7 +56,7 @@ class NewPassword extends StatelessWidget {
                       label: 'كلمة السر الجديدة',
                       hint: 'ادخل كلمة السر الجديدة',
                       suffix: Icons.visibility_off_outlined,
-                      kbtype: TextInputType.text,
+                      kbtype: TextInputType.visiblePassword,
                       obscure: true,
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),

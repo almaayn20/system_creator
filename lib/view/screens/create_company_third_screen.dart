@@ -108,7 +108,7 @@ class CreateCompanyThirdScreen extends StatelessWidget {
                           double.infinity, // Expand to fill the available width
                       child: filledButtonCustom(
                           onPressed: () {
-                            Get.to(Companies());
+                            Get.to(() => Companies());
                           },
                           text: 'تأكيد'),
                     ),

@@ -54,7 +54,7 @@ class Signup extends StatelessWidget {
                 ),
                 Container(
                   alignment: Alignment.centerRight,
-                  child: Text('أدخل تفاصيلك بالأسفل :'),
+                  child: const Text('أدخل تفاصيلك بالأسفل :'),
                 ),
                 SizedBox(height: SizeConfig.screenHeight * 0.02),
                 formCustom(
@@ -105,8 +105,8 @@ class Signup extends StatelessWidget {
                       controller: passwordController,
                       label: 'كلمة السر',
                       hint: 'ادخل كلمة السر',
-                      suffix: Icons.visibility_off_outlined,
-                      kbtype: TextInputType.text,
+                      suffix: Icons.password_outlined,
+                      kbtype: TextInputType.visiblePassword,
                       obscure: true,
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
@@ -125,7 +125,7 @@ class Signup extends StatelessWidget {
                           double.infinity, // Expand to fill the available width
                       child: filledButtonCustom(
                           onPressed: () {
-                            Get.to(Verification());
+                            Get.to(() => Verification());
                           },
                           text: 'الذهاب الى التحقق من التسجيل'),
                     ),

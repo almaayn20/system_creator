@@ -109,11 +109,6 @@ class Settings extends StatelessWidget {
               },
             ),
             ListTileProps(
-              title: const Text('حذف مؤسسة أو فرع'),
-              leading: Icons.remove_circle_outline,
-              onTap: () {},
-            ),
-            ListTileProps(
               title: const Text('سياسة الخصوصية'),
               leading: Icons.privacy_tip_outlined,
               onTap: () {},
@@ -141,7 +136,7 @@ class Settings extends StatelessWidget {
           ], [
             0,
             1,
-            5
+            4
           ]),
         ),
       ),

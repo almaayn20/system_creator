@@ -6,6 +6,9 @@ import 'package:system_creator/view/screens/create_company_first_screen.dart';
 import 'package:system_creator/view/screens/features_screens/advertisement.dart';
 import 'package:system_creator/view/screens/features_screens/notifications.dart';
 import 'package:system_creator/view/screens/login.dart';
+import 'package:system_creator/view/screens/management_screens/branch_management_screens/banks.dart';
+import 'package:system_creator/view/screens/management_screens/branch_management_screens/buessiness_hours.dart';
+import 'package:system_creator/view/screens/management_screens/branch_management_screens/managers.dart';
 import 'package:system_creator/view/screens/management_screens/branches.dart';
 import 'package:system_creator/view/screens/management_screens/info.dart';
 import 'package:system_creator/view/screens/management_screens/social_medial.dart';
@@ -15,8 +18,10 @@ import 'package:get/get.dart';
 import 'package:system_creator/view/widget/card.dart';
 import 'package:tuple/tuple.dart';
 
+import '../../controller/branch_tab_controller.dart';
 import '../../controller/features_tab_controller.dart';
 import '../widget/app_bar.dart';
+import '../widget/branch_card_list.dart';
 import '../widget/icon_button.dart';
 import '../widget/list_Card.dart';
 import '../widget/list_card_company.dart';
@@ -28,6 +33,8 @@ class Companies extends StatelessWidget {
   final FeaturesTabController tabController = Get.put(FeaturesTabController());
   final ManagementTabController tabController2 =
       Get.put(ManagementTabController());
+  final BranchTabController branchTabController =
+      Get.put(BranchTabController());
 
   List<Map<String, dynamic>> cardDataList = [
     {
@@ -105,6 +112,40 @@ class Companies extends StatelessWidget {
     // Add more data objects here...
   ];
 
+  List<Map<String, dynamic>> managers = [
+    {
+      'imageUrl':
+          'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
+      'title': 'محمد سعيد',
+      'body': 'mohammed123',
+    },
+
+    {
+      'imageUrl':
+          'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
+      'title': 'محمد سعيد',
+      'body': 'mohammed123',
+    },
+    // Add more data objects here...
+  ];
+
+  List<Map<String, dynamic>> banks = [
+    {
+      'imageUrl':
+          'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
+      'title': 'بنك التضامن',
+      'body': '12056423',
+    },
+
+    {
+      'imageUrl':
+          'https://upload.wikimedia.org/wikipedia/sco/thumb/b/bf/KFC_logo.svg/2048px-KFC_logo.svg.png',
+      'title': 'بنك التضامن',
+      'body': '12056423',
+    },
+    // Add more data objects here...
+  ];
+
   List<Tuple2<String, IconData>> featuresTabsTitles = const [
     Tuple2('الإعلانات', Icons.add_a_photo_outlined),
     Tuple2('الإشعارات', Icons.notification_add_outlined),
@@ -115,6 +156,12 @@ class Companies extends StatelessWidget {
     Tuple2('التواصل الإجتماعي', Icons.phone_android_outlined),
     Tuple2('التحديثات', Icons.update_outlined),
     Tuple2('التفاصيل', Icons.info_outline),
+  ];
+
+  List<Tuple2<String, IconData>> branchTabsTitles = const [
+    Tuple2('المدراء', Icons.manage_accounts_outlined),
+    Tuple2('البنوك', Icons.balance_outlined),
+    Tuple2('ساعات العمل', Icons.timeline_outlined),
   ];
 
   @override
@@ -147,8 +194,29 @@ class Companies extends StatelessWidget {
         tabs: managementTabsTitles,
         tabViews: [
           Branches(
-            branchesList: CardListView(
+            branchesList: BranchCardListView(
               cardDataList: branches,
+              tabs: [
+                TabBarWidget(
+                    tabs: branchTabsTitles,
+                    tabViews: [
+                      Managers(
+                        managersList: CardListView(
+                          cardDataList: ads,
+                        ),
+                      ),
+                      Banks(
+                        banksList: CardListView(
+                          cardDataList: ads,
+                        ),
+                      ),
+                      BuessinessHours(
+                        from: '8:00',
+                        to: '9:00',
+                      ),
+                    ],
+                    callerScreen: 'branch')
+              ],
             ),
           ),
           SocialMedia(

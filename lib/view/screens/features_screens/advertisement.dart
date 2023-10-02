@@ -65,7 +65,7 @@ class AdvertisementBottomSheet {
                     : '';
               }
             },
-            kbtype: TextInputType.name,
+            kbtype: TextInputType.datetime,
           ),
           SizedBox(
             height: spacer,
@@ -89,7 +89,7 @@ class AdvertisementBottomSheet {
                     : '';
               }
             },
-            kbtype: TextInputType.name,
+            kbtype: TextInputType.datetime,
           ),
           SizedBox(
             height: spacer,

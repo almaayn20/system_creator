@@ -64,8 +64,8 @@ class Login extends StatelessWidget {
                       controller: passwordController,
                       label: 'كلمة السر',
                       hint: 'ادخل كلمة السر',
-                      suffix: Icons.visibility_off_outlined,
-                      kbtype: TextInputType.text,
+                      suffix: Icons.password_outlined,
+                      kbtype: TextInputType.visiblePassword,
                       obscure: true,
                     ),
                     SizedBox(height: SizeConfig.screenHeight * 0.01),
@@ -91,7 +91,7 @@ class Login extends StatelessWidget {
                   width: double.infinity,
                   child: elevatedButtonCustom(
                     func: () {
-                      Get.to(Verification());
+                      Get.to(() => Verification());
                     },
                     text: 'إنشاء حساب',
                   ),

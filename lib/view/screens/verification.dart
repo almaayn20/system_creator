@@ -68,7 +68,7 @@ class Verification extends StatelessWidget {
                           double.infinity, // Expand to fill the available width
                       child: filledButtonCustom(
                           onPressed: () {
-                            Get.to(CreateCompanyFirstScreen());
+                            Get.to(() => CreateCompanyFirstScreen());
                           },
                           text: 'تأكيد'),
                     ),

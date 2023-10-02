@@ -111,7 +111,7 @@ class CreateCompanySecondScreen extends StatelessWidget {
                       width: double.infinity,
                       child: filledButtonCustom(
                           onPressed: () {
-                            Get.to(CreateCompanyThirdScreen());
+                            Get.to(() => CreateCompanyThirdScreen());
                           },
                           text: 'التالي'),
                     ),

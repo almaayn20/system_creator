@@ -3,6 +3,7 @@ import 'package:get/get.dart';
 import 'package:tuple/tuple.dart';
 import 'package:system_creator/controller/features_tab_controller.dart';
 
+import '../../controller/branch_tab_controller.dart';
 import '../../controller/management_tab_controller .dart';
 
 class TabBarWidget extends StatelessWidget {
@@ -10,6 +11,7 @@ class TabBarWidget extends StatelessWidget {
   final List<Tuple2<String, IconData>> tabs;
   final FeaturesTabController featuresTabController = Get.find();
   final ManagementTabController managementTabController = Get.find();
+  final BranchTabController branchTabController = Get.find();
   final String callerScreen;
 
   TabBarWidget(
@@ -34,8 +36,10 @@ class TabBarWidget extends StatelessWidget {
             onTap: (value) {
               if (callerScreen == 'features') {
                 featuresTabController.updateTabIndex(value);
-              } else {
+              } else if (callerScreen == 'management') {
                 managementTabController.updateTabIndex(value);
+              } else {
+                branchTabController.updateTabIndex(value);
               }
             },
           ),
