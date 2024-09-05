@@ -1,16 +1,13 @@
-# system_creator
+# System Creator
 
-A new Flutter project.
+A user interface for an application creation platform that allows users to build apps with just a click. Users simply select the type of app, enter the name, choose a theme, and upload an icon. The platform also enables users to manage their created apps and create additional ones. It supports managing shared features across apps, making it ideal for handling multiple branches.
 
-## Getting Started
+### Features
 
-This project is a starting point for a Flutter application.
+- Fully designed using the Material 3 Design System. View Design with Figma [Click here](https://www.figma.com/design/DBUZoTz49gNpzkS9pBZSzI/System-Creator?node-id=0-1&t=FuwEpsb1fSRz2Amx-1)
+- Clean and maintainable code structure.
 
-A few resources to get you started if this is your first Flutter project:
+### Demo
 
-- [Lab: Write your first Flutter app](https://docs.flutter.dev/get-started/codelab)
-- [Cookbook: Useful Flutter samples](https://docs.flutter.dev/cookbook)
-
-For help getting started with Flutter development, view the
-[online documentation](https://docs.flutter.dev/), which offers tutorials,
-samples, guidance on mobile development, and a full API reference.
+You can download and install the latest build of the app from the link below:
+Download the Latest Build: [Click here](https://drive.google.com/file/d/1FLy68vRiFWiRRABWOli3VOwQScGLFIoI/view?usp=sharing)
