@@ -75,7 +75,9 @@ class CardListView extends StatelessWidget {
               gradient: LinearGradient(
                 colors: [
                   Colors.red,
-                  Theme.of(context).colorScheme.onPrimary,
+                  Get.isDarkMode
+                      ? Theme.of(context).colorScheme.onPrimary
+                      : Theme.of(context).colorScheme.primary,
                 ],
                 begin: Alignment.centerLeft,
                 end: Alignment.centerRight,

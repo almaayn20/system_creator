@@ -154,8 +154,8 @@ class Companies extends StatelessWidget {
   List<Tuple2<String, IconData>> managementTabsTitles = const [
     Tuple2('الفروع', Icons.segment_outlined),
     Tuple2('التواصل الإجتماعي', Icons.phone_android_outlined),
-    Tuple2('التحديثات', Icons.update_outlined),
     Tuple2('التفاصيل', Icons.info_outline),
+    Tuple2('التحديثات', Icons.update_outlined),
   ];
 
   List<Tuple2<String, IconData>> branchTabsTitles = const [

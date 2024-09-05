@@ -60,7 +60,7 @@ class SocialMediaBottomSheet {
             hint: 'ادخل رابط الحساب',
             suffix: Icons.link_outlined,
             obscure: false,
-            kbtype: TextInputType.name,
+            kbtype: TextInputType.url,
           ),
           SizedBox(
             height: spacer,

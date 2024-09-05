@@ -38,11 +38,13 @@ class CompanyManagement extends StatelessWidget {
           } else {
             return FloatingActionButton.extended(
               onPressed: () {
-                // Add your onPressed logic here
-                // This will only be called when the FAB is visible
-                SocialMediaBottomSheet().show(context);
+                tabController.selectedIndex.value == 0
+                    ? BranchesBottomSheet().show(context)
+                    : SocialMediaBottomSheet().show(context);
               },
-              label: const Text('اضافة منصة جديده'),
+              label: tabController.selectedIndex.value == 0
+                  ? const Text('اضافة فرع جديد')
+                  : const Text('اضافة منصة جديده'),
               icon: const Icon(Icons.add),
             );
           }
